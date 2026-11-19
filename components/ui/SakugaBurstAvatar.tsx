@@ -59,13 +59,13 @@ export function SakugaBurstAvatar({
 
   const currentImage = useGojo ? "/krishna-gojo-cutout.png" : imageSrc;
 
-  // Background color fills matching Tanuja's portfolio reference or Sakuga lilac/white
+  // Background color fills matching Tanuja's portfolio reference or Sakuga lilac/card
   const fillColor =
     blossomTheme === "yellow"
-      ? "#ffd23f" // Warm sunny yellow from Tanuja's portfolio screenshot
+      ? "#ffd23f" // Warm sunny yellow
       : blossomTheme === "lilac"
-      ? "#dedaff" // Soft pastel lilac
-      : "#ffffff"; // Pure clean white
+      ? "var(--sk-soft)" // Soft pastel lilac
+      : "var(--sk-card)"; // Pure clean card (adapts to light and dark themes)
 
   return (
     <div
@@ -257,7 +257,7 @@ export function SakugaBurstAvatar({
           top: "-12px",
           right: "6px",
           zIndex: 5,
-          background: "#ffffff",
+          background: "var(--sk-card)",
           border: "2px solid var(--sk-ink)",
           boxShadow: "2px 2px 0 var(--sk-soft)",
           padding: "4px 10px",

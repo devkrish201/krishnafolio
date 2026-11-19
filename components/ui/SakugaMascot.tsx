@@ -63,7 +63,7 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
       <div
         className="mascot-speech-bubble"
         style={{
-          background: "#ffffff",
+          background: "var(--sk-card)",
           border: "2.5px solid var(--sk-ink)",
           borderRadius: "16px",
           padding: "10px 18px",
@@ -88,7 +88,7 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
             transform: "translateX(-50%) rotate(45deg)",
             width: "12px",
             height: "12px",
-            background: "#ffffff",
+            background: "var(--sk-card)",
             borderRight: "2.5px solid var(--sk-ink)",
             borderBottom: "2.5px solid var(--sk-ink)",
           }}
@@ -118,17 +118,17 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
           {/* Outer Kinetic Speed Aura Trails */}
           <path
             d="M 36 115 C 10 78, 56 30, 118 35 C 160 10, 225 16, 255 58 C 306 65, 325 125, 296 174 C 316 224, 260 262, 212 248 C 166 265, 110 248, 80 220 C 32 226, 12 174, 36 115 Z"
-            stroke="#b8b3ff"
+            stroke="var(--sk-soft)"
             strokeWidth="2.4"
             strokeDasharray="7 6"
             fill="none"
           />
 
           {/* Floating Manga SFX Stamps */}
-          <text x="20" y="44" fill="#8580b0" fontSize="13" fontWeight="800" fontStyle="italic">シュッ</text>
-          <text x="280" y="224" fill="#ff5fa8" fontSize="13" fontWeight="800" fontStyle="italic">カチッ</text>
+          <text x="20" y="44" fill="var(--mute)" fontSize="13" fontWeight="800" fontStyle="italic">シュッ</text>
+          <text x="280" y="224" fill="var(--sk-acc)" fontSize="13" fontWeight="800" fontStyle="italic">カチッ</text>
 
-          {/* Main Sakuga Cloud Body in Crisp White */}
+          {/* Main Sakuga Cloud Body in Theme Card Color */}
           <path
             d="M 70 135 
                C 48 114, 62 72, 104 78 
@@ -138,8 +138,8 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
                C 252 232, 204 238, 178 220 
                C 150 240, 104 230, 94 202 
                C 58 200, 48 160, 70 135 Z"
-            fill="#ffffff"
-            stroke="#1d1a4a"
+            fill="var(--sk-card)"
+            stroke="var(--sk-ink)"
             strokeWidth="3.8"
             strokeLinejoin="round"
           />
@@ -150,14 +150,14 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
                C 104 230, 150 240, 178 220 
                C 204 238, 252 232, 260 198 
                C 225 212, 142 216, 94 202 Z"
-            fill="#b8b3ff"
-            stroke="#1d1a4a"
+            fill="var(--sk-soft)"
+            stroke="var(--sk-ink)"
             strokeWidth="2.8"
             strokeLinejoin="round"
           />
 
           {/* Big Anime Expressive Eyes */}
-          <g fill="#1d1a4a">
+          <g fill="var(--sk-ink)">
             <ellipse cx="140" cy="132" rx="9.5" ry="12.5" />
             <ellipse cx="202" cy="132" rx="9.5" ry="12.5" />
             {/* Eye sparkle highlights */}
@@ -168,13 +168,13 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
           </g>
 
           {/* Rosy Electric Pink Anime Blush Cheeks */}
-          <ellipse cx="118" cy="150" rx="12" ry="8" fill="#ff5fa8" opacity="0.85" />
-          <ellipse cx="224" cy="150" rx="12" ry="8" fill="#ff5fa8" opacity="0.85" />
+          <ellipse cx="118" cy="150" rx="12" ry="8" fill="var(--sk-acc)" opacity="0.85" />
+          <ellipse cx="224" cy="150" rx="12" ry="8" fill="var(--sk-acc)" opacity="0.85" />
 
           {/* Cute Confident Anime Smile */}
           <path
             d="M 160 150 Q 171 166 182 150"
-            stroke="#1d1a4a"
+            stroke="var(--sk-ink)"
             strokeWidth="3.8"
             strokeLinecap="round"
             fill="none"
@@ -185,17 +185,17 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
             {/* 5-Petal Anime Flower / Star */}
             <path
               d="M 0 -22 L 6 -6 L 22 0 L 6 6 L 0 22 L -6 6 L -22 0 L -6 -6 Z"
-              fill="#ff5fa8"
-              stroke="#1d1a4a"
+              fill="var(--sk-acc)"
+              stroke="var(--sk-ink)"
               strokeWidth="2.6"
               strokeLinejoin="round"
             />
-            <circle cx="0" cy="0" r="4.5" fill="#ffffff" stroke="#1d1a4a" strokeWidth="1.8" />
+            <circle cx="0" cy="0" r="4.5" fill="#ffffff" stroke="var(--sk-ink)" strokeWidth="1.8" />
           </g>
 
           {/* Speed Wedge Accents */}
-          <path d="M 42 90 L 26 84 L 40 78 Z" fill="#ff5fa8" />
-          <path d="M 302 148 L 318 142 L 305 156 Z" fill="#ff5fa8" />
+          <path d="M 42 90 L 26 84 L 40 78 Z" fill="var(--sk-acc)" />
+          <path d="M 302 148 L 318 142 L 305 156 Z" fill="var(--sk-acc)" />
         </svg>
       </div>
 
