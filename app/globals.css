@@ -1501,11 +1501,11 @@ body.has-dandadan-cursor sakuga-radio {
 #dandadan-cursor.is-locked .cursor-circling-group {
   animation: dandadan-spin 0.95s linear infinite !important;
   opacity: 1 !important;
-  filter: drop-shadow(0 0 8px #ff5fa8);
+  filter: drop-shadow(0 0 8px var(--sk-acc));
 }
 
 #dandadan-cursor.is-locked svg {
-  filter: drop-shadow(0 0 14px #ff5fa8) drop-shadow(0 0 8px #8f8df7) !important;
+  filter: drop-shadow(0 0 14px var(--sk-acc)) drop-shadow(0 0 8px var(--sk-pri)) !important;
 }
 
 #dandadan-cursor.is-charging svg {
