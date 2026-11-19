@@ -128,7 +128,7 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
           <text x="20" y="44" fill="var(--mute)" fontSize="13" fontWeight="800" fontStyle="italic">シュッ</text>
           <text x="280" y="224" fill="var(--sk-acc)" fontSize="13" fontWeight="800" fontStyle="italic">カチッ</text>
 
-          {/* Main Sakuga Cloud Body in Theme Card Color */}
+          {/* Main Sakuga Cloud Body in Crisp White (Original Character Aesthetic) */}
           <path
             d="M 70 135 
                C 48 114, 62 72, 104 78 
@@ -138,8 +138,8 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
                C 252 232, 204 238, 178 220 
                C 150 240, 104 230, 94 202 
                C 58 200, 48 160, 70 135 Z"
-            fill="var(--sk-card)"
-            stroke="var(--sk-ink)"
+            fill="#ffffff"
+            stroke="#1d1a4a"
             strokeWidth="3.8"
             strokeLinejoin="round"
           />
@@ -150,14 +150,14 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
                C 104 230, 150 240, 178 220 
                C 204 238, 252 232, 260 198 
                C 225 212, 142 216, 94 202 Z"
-            fill="var(--sk-soft)"
-            stroke="var(--sk-ink)"
+            fill="#b8b3ff"
+            stroke="#1d1a4a"
             strokeWidth="2.8"
             strokeLinejoin="round"
           />
 
           {/* Big Anime Expressive Eyes */}
-          <g fill="var(--sk-ink)">
+          <g fill="#1d1a4a">
             <ellipse cx="140" cy="132" rx="9.5" ry="12.5" />
             <ellipse cx="202" cy="132" rx="9.5" ry="12.5" />
             {/* Eye sparkle highlights */}
@@ -174,7 +174,7 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
           {/* Cute Confident Anime Smile */}
           <path
             d="M 160 150 Q 171 166 182 150"
-            stroke="var(--sk-ink)"
+            stroke="#1d1a4a"
             strokeWidth="3.8"
             strokeLinecap="round"
             fill="none"
@@ -186,11 +186,11 @@ export function SakugaMascot({ onToast }: SakugaMascotProps) {
             <path
               d="M 0 -22 L 6 -6 L 22 0 L 6 6 L 0 22 L -6 6 L -22 0 L -6 -6 Z"
               fill="var(--sk-acc)"
-              stroke="var(--sk-ink)"
+              stroke="#1d1a4a"
               strokeWidth="2.6"
               strokeLinejoin="round"
             />
-            <circle cx="0" cy="0" r="4.5" fill="#ffffff" stroke="var(--sk-ink)" strokeWidth="1.8" />
+            <circle cx="0" cy="0" r="4.5" fill="#ffffff" stroke="#1d1a4a" strokeWidth="1.8" />
           </g>
 
           {/* Speed Wedge Accents */}
