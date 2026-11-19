@@ -2,20 +2,38 @@
 
 import React, { useEffect, useState, useRef } from "react";
 
+type MilestoneIcon = "sparkle" | "palette" | "bolt" | "domain" | "rocket";
+
+interface Milestone {
+  text: string;
+  icon: MilestoneIcon;
+}
+
 export function SakugaPreloader() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
-  const [speech, setSpeech] = useState("Waking up Sakuga engines... ✨");
+  const [milestone, setMilestone] = useState<Milestone>({
+    text: "Waking up Sakuga engines...",
+    icon: "sparkle",
+  });
   const progressRef = useRef<any>(null);
 
-  // Loading quotes synchronized with percentage milestones
-  const getSpeechForProgress = (p: number) => {
-    if (p < 25) return "Waking up Sakuga engines... ✨";
-    if (p < 55) return "Tuning design tokens & spring physics... 🎨";
-    if (p < 85) return "Channeling cursed energy & icons... ⚡";
-    if (p < 99) return "Preparing Domain Expansion... ドン!";
-    return "Unlimited Void Active! ガチッ! 🚀";
+  // Loading quotes synchronized with percentage milestones (Zero Emojis, pure SVG vector icons)
+  const getMilestoneForProgress = (p: number): Milestone => {
+    if (p < 25) {
+      return { text: "Waking up Sakuga engines...", icon: "sparkle" };
+    }
+    if (p < 55) {
+      return { text: "Tuning design tokens & spring physics...", icon: "palette" };
+    }
+    if (p < 85) {
+      return { text: "Channeling cursed energy & icons...", icon: "bolt" };
+    }
+    if (p < 99) {
+      return { text: "Preparing Domain Expansion... ドン!", icon: "domain" };
+    }
+    return { text: "Unlimited Void Active! ガチッ!", icon: "rocket" };
   };
 
   useEffect(() => {
@@ -28,7 +46,7 @@ export function SakugaPreloader() {
       const rawPct = Math.min(100, Math.floor((elapsed / duration) * 100));
 
       setProgress(rawPct);
-      setSpeech(getSpeechForProgress(rawPct));
+      setMilestone(getMilestoneForProgress(rawPct));
 
       if (progressRef.current && typeof progressRef.current.set === "function") {
         progressRef.current.set(rawPct / 100);
@@ -73,6 +91,51 @@ export function SakugaPreloader() {
   };
 
   if (!loading) return null;
+
+  // Render SVG Vector Icons for each milestone
+  const renderMilestoneIcon = (icon: MilestoneIcon) => {
+    switch (icon) {
+      case "sparkle":
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sk-pri)" stroke="var(--sk-ink)" strokeWidth="1.5">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+          </svg>
+        );
+      case "palette":
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sk-acc)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+          </svg>
+        );
+      case "bolt":
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffd23f" stroke="var(--sk-ink)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        );
+      case "domain":
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path>
+          </svg>
+        );
+      case "rocket":
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sk-pri)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+          </svg>
+        );
+    }
+  };
 
   return (
     <div
@@ -178,12 +241,19 @@ export function SakugaPreloader() {
             marginBottom: "16px",
             position: "relative",
             lineHeight: "1.4",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
             textAlign: "center",
             transform: "translateY(0)",
             animation: "sakuga-bubble-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
           }}
         >
-          <span>{speech}</span>
+          <span>{milestone.text}</span>
+          <span style={{ display: "inline-flex", alignItems: "center", flexShrink: 0 }}>
+            {renderMilestoneIcon(milestone.icon)}
+          </span>
           {/* Balloon pointer tail */}
           <div
             style={{
