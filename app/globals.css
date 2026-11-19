@@ -2185,10 +2185,14 @@ body.has-dandadan-cursor sakuga-radio {
 }
 
 /* ========================================================
-   SAKUGA FLOATING CONTROLS & DOCKS (ARROW TOP & PHONE)
+   SAKUGA FLOATING CONTROLS & DOCKS (THEME DOCK & ACTION DOCK)
    ======================================================== */
 
-.sakuga-floating-phone-dock {
+.sakuga-floating-theme-dock {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sakuga-floating-right-dock {
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -2219,13 +2223,14 @@ body.has-dandadan-cursor sakuga-radio {
 
 /* Mobile Screens Floating Dock Layout */
 @media (max-width: 767px) {
-  .sakuga-floating-phone-dock {
-    bottom: 16px !important;
-    left: 14px !important;
+  .sakuga-floating-theme-dock {
+    top: 76px !important;
+    right: 14px !important;
   }
   .sakuga-floating-right-dock {
     bottom: 16px !important;
     right: 14px !important;
+    gap: 8px !important;
   }
   .sakuga-phone-btn {
     padding: 6px 12px !important;
