@@ -129,11 +129,9 @@ export default function AboutPage() {
 
             {/* Satoru Gojo Design Philosophy Card */}
             <div className="about-philosophy-card">
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <span className="project-badge" style={{ background: "#0c0a24", color: "#00e5ff", borderColor: "#00e5ff" }}>
-                  The Infinity Principle · 無量空処
-                </span>
-              </div>
+              <span className="project-badge" style={{ background: "#0c0a24", color: "#00e5ff", borderColor: "#00e5ff" }}>
+                The Infinity Principle · 無量空処
+              </span>
               <p
                 style={{
                   marginTop: "10px",
@@ -148,7 +146,7 @@ export default function AboutPage() {
             </div>
 
             {/* Experience Focus Badges Strip */}
-            <div className="about-pills-row" style={{ marginTop: "20px" }}>
+            <div className="about-pills-row">
               <span className="project-badge">Product &amp; Systems Designer</span>
               <span className="project-badge">3.5+ Yrs Enterprise &amp; AI</span>
               <span className="project-badge">Design Systems Scale</span>

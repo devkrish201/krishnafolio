@@ -1351,33 +1351,109 @@ nav a:hover, nav a.active {
     grid-column: auto;
   }
   .studio-about {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 44px;
     padding: 56px 0;
-    text-align: left;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
   }
   .studio-about-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     max-width: 440px;
     margin: 0 auto;
     width: 100%;
   }
   .studio-about-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     max-width: 680px;
     margin: 0 auto;
     width: 100%;
-    text-align: left;
+  }
+  .studio-about-copy .eyebrow {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .studio-about-copy h1,
+  .studio-about-copy h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-lead {
+    text-align: center;
+    margin: 14px auto 16px auto;
+  }
+  .studio-about-copy p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-philosophy-card {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 540px;
+  }
+  .about-philosophy-card .project-badge {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .about-philosophy-card p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .about-pills-row {
-    justify-content: flex-start;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-cadence-card {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 540px;
+  }
+  .cadence-label {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .cadence-text {
+    text-align: center !important;
+    margin: 8px auto 0 auto !important;
   }
   .studio-about-links {
-    justify-content: flex-start;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .manga-splash-stage {
-    max-width: 420px;
+    max-width: 400px;
+    margin: 0 auto;
   }
   .sakuga-burst-container {
-    max-width: 440px !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
   }
   .contact-section {
     flex-direction: column;
@@ -1468,94 +1544,187 @@ nav a:hover, nav a.active {
     padding: 24px 16px;
   }
 
-  /* Studio About Mobile Overrides */
+  /* Studio About Mobile Overrides - 100% Centered & Fitted */
   .studio-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     padding: 36px 0;
     gap: 32px;
-    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
   .studio-about-profile {
-    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: min(340px, calc(100vw - 32px));
     margin: 0 auto;
     width: 100%;
   }
   .studio-about-copy {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     max-width: 100%;
     width: 100%;
+    margin: 0 auto;
+  }
+  .studio-about-copy .eyebrow {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .studio-about-copy h1,
+  .studio-about-copy h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .about-lead {
     font-size: 17px;
-    margin: 12px 0 14px;
+    margin: 12px auto 14px auto;
+    text-align: center;
+    max-width: 500px;
   }
   .studio-about-copy p {
     font-size: 15px;
     line-height: 1.7;
     margin-top: 12px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 520px;
   }
   .about-visual-switcher {
     width: 100%;
+    max-width: 320px;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+    margin: 0 auto 20px auto;
+    display: flex;
+  }
+  .about-philosophy-card {
+    margin: 20px auto;
+    padding: 14px 16px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .about-philosophy-card .project-badge {
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+  }
+  .about-philosophy-card p {
+    text-align: center !important;
+    margin: 8px auto 0 auto !important;
+    font-size: 13px !important;
+    max-width: 440px;
   }
   .about-pills-row {
-    margin-top: 18px;
+    margin: 18px auto 0 auto;
     gap: 6px;
-    justify-content: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+  }
+  .about-pills-row .project-badge {
+    text-align: center;
   }
   .about-cadence-card {
-    margin: 20px 0;
+    margin: 20px auto;
     padding: 14px 16px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .cadence-label {
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+  }
+  .cadence-text {
+    text-align: center !important;
+    margin: 8px auto 0 auto !important;
+    font-size: 13.5px !important;
   }
   .studio-about-links {
     gap: 10px;
-    margin-top: 22px;
-    justify-content: flex-start;
+    margin: 22px auto 0 auto;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
   }
   .manga-splash-stage {
-    max-width: 360px;
+    max-width: min(320px, calc(100vw - 32px));
     width: 100%;
+    margin: 0 auto;
+  }
+  .manga-action-canvas {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.45), 4px 5px 0 var(--sk-soft) !important;
   }
   .manga-speedline-backdrop {
-    inset: -6px -8px;
-    border-radius: 24px;
+    inset: 0 !important;
+    border-radius: 20px !important;
   }
   .floating-manga-kanji-left {
     left: 8px;
-    top: 12px;
-    font-size: 20px;
-    letter-spacing: 0.16em;
+    top: 10px;
+    font-size: 18px;
+    letter-spacing: 0.14em;
   }
   .floating-manga-kanji-right {
     right: 8px;
-    bottom: 24px;
-    font-size: 18px;
-    letter-spacing: 0.16em;
+    bottom: 20px;
+    font-size: 16px;
+    letter-spacing: 0.14em;
   }
   .manga-sfx-stamp-top {
-    top: -10px;
-    right: 12px;
-    font-size: 22px;
-  }
-  .manga-sfx-stamp-bottom {
-    bottom: 12px;
-    left: 10px;
+    top: -8px;
+    right: 10px;
     font-size: 20px;
   }
+  .manga-sfx-stamp-bottom {
+    bottom: 10px;
+    left: 10px;
+    font-size: 18px;
+  }
   .domain-seal-pill {
-    bottom: 12px;
-    max-width: calc(100% - 24px);
+    bottom: 10px;
+    max-width: calc(100% - 20px);
     padding: 5px 12px;
     gap: 6px;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4), 2px 2px 0 var(--sk-ink) !important;
   }
   .domain-seal-pill span {
     font-size: 11px !important;
   }
   .sakuga-burst-container {
-    max-width: 360px !important;
+    max-width: min(320px, calc(100vw - 32px)) !important;
+    margin: 0 auto !important;
+  }
+  .sakuga-burst-container .pill {
+    top: 4px !important;
+    right: 4px !important;
   }
   .sakuga-halftone-grid {
-    inset: -6px !important;
+    inset: 0 !important;
     border-radius: 20px !important;
   }
 }
@@ -1582,25 +1751,29 @@ nav a:hover, nav a.active {
     width: 100%;
   }
 
-  /* Studio About Small Mobile (<480px) */
+  /* Studio About Small Mobile (<480px) - Centered & Fitted */
   .studio-about {
     padding: 24px 0;
     gap: 24px;
+    text-align: center;
   }
   .studio-about-profile {
     max-width: 100%;
+    margin: 0 auto;
   }
   .about-visual-switcher {
     border-radius: 16px;
     padding: 5px;
     gap: 4px;
     width: 100%;
+    max-width: 300px;
+    margin: 0 auto 16px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
   .about-visual-switcher .pill {
-    flex: 1 1 125px;
+    flex: 1 1 120px;
     justify-content: center;
     font-size: 11px !important;
     padding: 0 8px !important;
@@ -1608,21 +1781,26 @@ nav a:hover, nav a.active {
   }
   .about-philosophy-card {
     padding: 12px 14px !important;
-    margin: 16px 0 !important;
+    margin: 16px auto !important;
+    max-width: 100%;
   }
   .about-cadence-card {
     padding: 12px 14px;
-    margin: 16px 0;
+    margin: 16px auto;
+    max-width: 100%;
   }
   .cadence-text {
     font-size: 13px !important;
     line-height: 1.5 !important;
+    text-align: center !important;
   }
   .studio-about-links {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
     width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0 auto;
   }
   .studio-about-links sakuga-button,
   .studio-about-links .pill {
@@ -1632,31 +1810,42 @@ nav a:hover, nav a.active {
     text-align: center;
   }
   .sakuga-burst-container {
-    max-width: 320px !important;
+    max-width: min(300px, 100%) !important;
+    margin: 0 auto !important;
+  }
+  .manga-splash-stage {
+    max-width: min(300px, 100%);
+    margin: 0 auto;
   }
 }
 
 /* Extra Small Screens (<=380px) */
 @media (max-width: 380px) {
   .manga-splash-stage {
-    max-width: 280px;
+    max-width: 270px;
+    margin: 0 auto;
   }
   .sakuga-burst-container {
-    max-width: 275px !important;
+    max-width: 265px !important;
+    margin: 0 auto !important;
   }
   .floating-manga-kanji-left {
     left: 6px;
-    top: 10px;
-    font-size: 17px;
+    top: 8px;
+    font-size: 16px;
   }
   .floating-manga-kanji-right {
     right: 6px;
-    bottom: 20px;
-    font-size: 16px;
+    bottom: 16px;
+    font-size: 15px;
   }
   .domain-seal-pill {
-    padding: 4px 10px;
-    font-size: 10px;
+    padding: 4px 8px;
+    font-size: 9.5px;
+    bottom: 8px;
+  }
+  .domain-seal-pill span {
+    font-size: 10px !important;
   }
 }
 
