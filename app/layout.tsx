@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { SakugaCursor } from "@/components/ui/SakugaCursor";
 import { SakugaScrollProgress } from "@/components/ui/SakugaScrollProgress";
@@ -18,9 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <head suppressHydrationWarning>
         {/* Instant SSR Theme Initialization to prevent Flash of Unstyled Theme */}
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `
               try {
@@ -30,19 +32,21 @@ export default function RootLayout({
             `,
           }}
         />
-        <script src="/sakuga-vfx/button.js" defer></script>
-        <script src="/sakuga-vfx/toggle.js" defer></script>
-        <script src="/sakuga-vfx/slider.js" defer></script>
-        <script src="/sakuga-vfx/checkbox.js" defer></script>
-        <script src="/sakuga-vfx/radio.js" defer></script>
-        <script src="/sakuga-vfx/input.js" defer></script>
-        <script src="/sakuga-vfx/tabs.js" defer></script>
-        <script src="/sakuga-vfx/progress.js" defer></script>
-        <script src="/sakuga-vfx/rating.js" defer></script>
-        <script src="/sakuga-vfx/toast.js" defer></script>
-        <script src="/sakuga-vfx/tooltip.js" defer></script>
       </head>
       <body suppressHydrationWarning>
+        {/* Next.js Managed Sakuga VFX Web Component Scripts (Safe from Extension Interference) */}
+        <Script src="/sakuga-vfx/button.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/toggle.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/slider.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/checkbox.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/radio.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/input.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/tabs.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/progress.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/rating.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/toast.js" strategy="afterInteractive" />
+        <Script src="/sakuga-vfx/tooltip.js" strategy="afterInteractive" />
+
         <SakugaThemeProvider>
           {/* Kinetic Sakuga Anime Preloader with Hero Mascot Character */}
           <SakugaPreloader />
