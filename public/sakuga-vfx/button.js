@@ -13,9 +13,8 @@ class SakugaButton extends fx.Base {
   static delegates = true;
   static observedAttributes = ['disabled'];
   static css = `
-    :host { display: inline-block; vertical-align: middle; }
-    .btn { position: relative; padding: var(--sk-btn-p, 12px 24px); border: var(--sk-bw) solid var(--sk-btn-line); border-radius: var(--sk-r); background: var(--sk-card); color: var(--sk-ink); font: italic 800 var(--sk-btn-fs, 16px)/1.1 "Avenir Next", "Nunito", -apple-system, "Segoe UI", system-ui, sans-serif; letter-spacing: -.01em; box-shadow: var(--sk-btn-sh); cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: manipulation; will-change: transform; white-space: nowrap; }
-    .btn.alt { border-color: var(--sk-alt-line); box-shadow: var(--sk-alt-sh); background: var(--chip); }
+    .btn { position: relative; padding: 14px 30px; border: var(--sk-bw) solid var(--sk-btn-line); border-radius: var(--sk-r); background: var(--sk-card); color: var(--sk-ink); font: italic 800 19px/1.1 "Avenir Next", "Nunito", -apple-system, "Segoe UI", system-ui, sans-serif; letter-spacing: -.01em; box-shadow: var(--sk-btn-sh); cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: manipulation; will-change: transform; }
+    .btn.alt { border-color: var(--sk-alt-line); box-shadow: var(--sk-alt-sh); }
     .btn.inv { background: var(--sk-ink); color: var(--sk-card); box-shadow: none; }   /* the impact frame */
     .btn:disabled { opacity: .45; cursor: not-allowed; }
     .ok { display: inline-block; width: calc(var(--ok, 0) * 24px); height: 18px; margin-left: calc(var(--ok, 0) * 6px); vertical-align: -2px; overflow: visible; fill: none; stroke: var(--sk-acc); stroke-width: 4.4; stroke-linecap: round; stroke-linejoin: round; transform: scale(var(--ok, 0)); }`;
@@ -40,18 +39,7 @@ class SakugaButton extends fx.Base {
       b.addEventListener('pointerdown', () => { if (b.disabled) return; const c = at(b); ticks(c.x, c.y - c.h / 2 - 6, { dir: -Math.PI / 2, n: 3, r: 4, len: 14, fan: 0.5 }); wob(c.x - c.w / 2 - 6, c.y, { dir: -1, r: 10, life: 0.3 }); wob(c.x + c.w / 2 + 6, c.y, { dir: 1, r: 10, life: 0.3 }); lines(c.x, c.y + c.h / 2 + 10, { n: 3, dir: 0, len: 16, spread: 0.1, life: 0.25 }); });
       b.addEventListener('click', () => this.impact());
     }
-    b.addEventListener('click', () => {
-      const href = this.getAttribute('href');
-      if (href) {
-        const target = this.getAttribute('target');
-        if (target === '_blank') {
-          window.open(href, '_blank', 'noopener,noreferrer');
-        } else {
-          window.location.href = href;
-        }
-      }
-      if (this.getAttribute('type') === 'submit') this.closest('form')?.requestSubmit();
-    });
+    b.addEventListener('click', () => { if (this.getAttribute('type') === 'submit') this.closest('form')?.requestSubmit(); });
   }
   // the impact: what a click does. You can call it yourself.
   impact() {

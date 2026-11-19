@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { PROFILE_DATA } from "@/data/portfolioData";
 import { SakugaBurstAvatar } from "@/components/ui/SakugaBurstAvatar";
 import { SakugaMangaPoster } from "@/components/ui/SakugaMangaPoster";
@@ -9,36 +9,71 @@ interface AboutSectionProps {
 
 export function AboutSection({ onToast }: AboutSectionProps) {
   const [visualMode, setVisualMode] = useState<"burst" | "manga">("manga");
-  const visualTabsRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const el = visualTabsRef.current;
-    if (!el) return;
-    const handleChange = (e: any) => {
-      const val = e.detail?.value || (el as any).value;
-      if (val === "manga" || val === "burst") {
-        setVisualMode(val);
-        onToast(val === "manga" ? "JJK Manga Domain Poster active!" : "Sunflower Blossom Cutout active!");
-      }
-    };
-    el.addEventListener("change", handleChange);
-    return () => el.removeEventListener("change", handleChange);
-  }, [onToast]);
 
   return (
     <section className="studio-about" id="about">
       {/* Left Column: Bold Organic Blossom Burst or JJK Manga Poster */}
       <div className="studio-about-profile">
-        {/* Visual Switcher Sakuga Tabs */}
+        {/* Visual Switcher Pills */}
         <div className="about-visual-switcher">
-          <sakuga-tabs
-            ref={visualTabsRef}
-            label="Visual Avatar Mode"
-            selected={visualMode === "manga" ? 0 : 1}
+          <button
+            type="button"
+            className="pill"
+            style={{
+              minHeight: "34px",
+              padding: "0 16px",
+              fontSize: "12.5px",
+              fontWeight: 800,
+              border: "none",
+              background: visualMode === "manga" ? "var(--sk-card)" : "transparent",
+              color: visualMode === "manga" ? "var(--sk-ink)" : "var(--mute)",
+              boxShadow: visualMode === "manga" ? "0 2px 8px rgba(29, 26, 74, 0.12)" : "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setVisualMode("manga");
+              onToast("JJK Manga Domain Poster active!");
+            }}
           >
-            <option value="manga">JJK Manga Poster</option>
-            <option value="burst">Sunflower Blossom</option>
-          </sakuga-tabs>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            JJK Manga Poster
+          </button>
+          <button
+            type="button"
+            className="pill"
+            style={{
+              minHeight: "34px",
+              padding: "0 16px",
+              fontSize: "12.5px",
+              fontWeight: 800,
+              border: "none",
+              background: visualMode === "burst" ? "var(--sk-card)" : "transparent",
+              color: visualMode === "burst" ? "var(--sk-ink)" : "var(--mute)",
+              boxShadow: visualMode === "burst" ? "0 2px 8px rgba(29, 26, 74, 0.12)" : "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setVisualMode("burst");
+              onToast("Sunflower Blossom Cutout active!");
+            }}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 2a4 4 0 0 0-4 4v1.5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4z"></path>
+              <path d="M12 16.5a4 4 0 0 0-4 4V22h8v-1.5a4 4 0 0 0-4-4z"></path>
+              <path d="M2 12a4 4 0 0 0 4-4h1.5a4 4 0 0 0 0 8H6a4 4 0 0 0-4-4z"></path>
+              <path d="M16.5 12a4 4 0 0 0 0-4H18a4 4 0 0 0 4 4 4 4 0 0 0-4 4h-1.5z"></path>
+            </svg>
+            Sunflower Blossom
+          </button>
         </div>
 
         {visualMode === "manga" ? (
@@ -120,35 +155,25 @@ export function AboutSection({ onToast }: AboutSectionProps) {
           >
             Start a Conversation ↗
           </sakuga-button>
-          <sakuga-button
-            variant="secondary"
-            href="/about"
-            onClick={() => onToast("Opening full story & philosophy...")}
-          >
+          <a className="pill" href="/about">
             Full Story &amp; Philosophy ↗
-          </sakuga-button>
-          <sakuga-button
-            variant="secondary"
+          </a>
+          <a
+            className="pill"
             href={PROFILE_DATA.socials.linkedin}
             target="_blank"
-            onClick={() => {
-              window.open(PROFILE_DATA.socials.linkedin, "_blank", "noopener,noreferrer");
-              onToast("Opening LinkedIn profile...");
-            }}
+            rel="noopener noreferrer"
           >
             LinkedIn ↗
-          </sakuga-button>
-          <sakuga-button
-            variant="secondary"
+          </a>
+          <a
+            className="pill"
             href={PROFILE_DATA.socials.github}
             target="_blank"
-            onClick={() => {
-              window.open(PROFILE_DATA.socials.github, "_blank", "noopener,noreferrer");
-              onToast("Opening GitHub profile...");
-            }}
+            rel="noopener noreferrer"
           >
             GitHub ↗
-          </sakuga-button>
+          </a>
         </div>
       </div>
     </section>

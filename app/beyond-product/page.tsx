@@ -347,12 +347,17 @@ export default function BeyondProductPage() {
 
                   <div className="project-acts">
                     <span style={{ fontSize: "12px", color: "var(--mute)" }}>Interactive Demo Active</span>
-                    <sakuga-button
-                      variant="secondary"
+                    <button
+                      className="pill"
+                      type="button"
+                      style={{
+                        borderColor: "var(--sk-ink)",
+                        boxShadow: `2px 2px 0 ${currentAccent}`,
+                      }}
                       onClick={() => showToast(`Interacting with ${item.title}...`)}
                     >
                       View Project ↗
-                    </sakuga-button>
+                    </button>
                   </div>
                 </article>
               );

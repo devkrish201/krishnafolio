@@ -87,38 +87,29 @@ export function HeroSection({ onToast }: HeroSectionProps) {
           >
             Explore my work ↓
           </sakuga-button>
-          <sakuga-button
-            variant="secondary"
+          <a
+            className="pill"
             href={PROFILE_DATA.socials.github}
             target="_blank"
-            onClick={() => {
-              window.open(PROFILE_DATA.socials.github, "_blank", "noopener,noreferrer");
-              onToast("Opening GitHub profile...");
-            }}
+            rel="noopener noreferrer"
           >
             GitHub ↗
-          </sakuga-button>
-          <sakuga-button
-            variant="secondary"
+          </a>
+          <a
+            className="pill"
             href={PROFILE_DATA.socials.linkedin}
             target="_blank"
-            onClick={() => {
-              window.open(PROFILE_DATA.socials.linkedin, "_blank", "noopener,noreferrer");
-              onToast("Opening LinkedIn profile...");
-            }}
+            rel="noopener noreferrer"
           >
             LinkedIn ↗
-          </sakuga-button>
-          <sakuga-button
-            variant="secondary"
+          </a>
+          <a
+            className="pill"
             href="#contact"
-            onClick={() => {
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-              onToast("Let's talk!");
-            }}
+            onClick={() => onToast("Let's talk!")}
           >
             Get in touch ↗
-          </sakuga-button>
+          </a>
           <sakuga-tooltip
             text="Plain at rest, kinetic in action"
             label="Design Philosophy"
