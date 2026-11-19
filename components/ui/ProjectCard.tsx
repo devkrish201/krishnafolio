@@ -29,6 +29,11 @@ const SAKUGA_CARD_PALETTES = [
     accent: "#f59e0b",
     shadow: "#ffd23f",
   },
+  {
+    bg: "rgba(143, 141, 247, 0.16)",
+    accent: "var(--sk-acc)",
+    shadow: "var(--sk-soft)",
+  },
 ];
 
 export function ProjectCard({ project, onToast, index = 0 }: ProjectCardProps) {

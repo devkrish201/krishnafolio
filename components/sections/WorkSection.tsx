@@ -43,7 +43,7 @@ export function WorkSection({ onToast }: WorkSectionProps) {
           label="Filter work categories"
           selected={filter === "all" ? 0 : filter === "systems" ? 1 : 2}
         >
-          <option value="all">All (04)</option>
+          <option value="all">All (05)</option>
           <option value="systems">Design Systems</option>
           <option value="ai">AI Tooling</option>
         </sakuga-tabs>

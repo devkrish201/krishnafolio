@@ -246,6 +246,11 @@ export function MockupRibbon({ project, onToast, accentColor = "var(--sk-pri)" }
     );
   }
 
+  // 5. Copilot Presentation Orchestrator: Dynamic Layout & Spatial Grid Synthesis
+  if (project.interactiveType === "tabs") {
+    return <OrchestratorMockup project={project} onToast={onToast} accentColor={accentColor} />;
+  }
+
   // 4. Bug Logger: Automated triage ingestion stream
   return (
     <div className="mockup-ribbon" style={{ maxWidth: "420px", borderTop: `4px solid ${accentColor}` }}>
@@ -289,8 +294,98 @@ export function MockupRibbon({ project, onToast, accentColor = "var(--sk-pri)" }
       </div>
 
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", fontSize: "11px", color: "var(--mute)" }}>
-        <span>⚡ Real-time triage active</span>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+          Real-time triage active
+        </span>
         <span style={{ fontWeight: 800, color: accentColor }}>Zero-friction capture</span>
+      </div>
+    </div>
+  );
+}
+
+// 5. Copilot Presentation Orchestrator: Dynamic Layout & Spatial Grid Synthesis
+function OrchestratorMockup({ project, onToast, accentColor }: MockupRibbonProps) {
+  return (
+    <div className="mockup-ribbon" style={{ maxWidth: "440px", borderTop: `4px solid ${accentColor}`, gap: "10px" }}>
+      <div className="mockup-toolbar">
+        <span
+          className="mockup-chip"
+          style={{
+            background: accentColor,
+            color: "#ffffff",
+            fontWeight: 800,
+            border: "1.5px solid var(--sk-ink)",
+            boxShadow: "2px 2px 0 var(--sk-ink)",
+          }}
+        >
+          Copilot Orchestrator
+        </span>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", fontWeight: 700, color: "var(--sk-ink)" }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>Generative Spatial Grid</span>
+        </div>
+      </div>
+
+      {/* Live Interactive Sakuga Tabs Component */}
+      <div style={{ width: "100%", padding: "4px 0" }}>
+        <sakuga-tabs
+          label="Slide Deck Layout Views"
+          onChange={(e: any) => onToast(`Orchestrator Mode: ${e.detail?.label || "Layout"} generated!`)}
+        >
+          <option value="exec">Executive Summary</option>
+          <option value="data">Data Impact</option>
+          <option value="story">Story Arc</option>
+        </sakuga-tabs>
+      </div>
+
+      {/* Generative Slide Preview Grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "8px",
+          width: "100%",
+          marginTop: "4px",
+        }}
+      >
+        <div
+          style={{
+            background: "var(--chip)",
+            border: "1.5px solid var(--line)",
+            borderRadius: "8px",
+            padding: "8px 10px",
+            fontSize: "11px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "3px",
+          }}
+        >
+          <strong style={{ color: "var(--sk-ink)", fontSize: "11.5px" }}>Slide 01: KPI Traction</strong>
+          <span style={{ color: "var(--mute)" }}>+24 pts satisfaction</span>
+        </div>
+        <div
+          style={{
+            background: "var(--chip)",
+            border: "1.5px solid var(--line)",
+            borderRadius: "8px",
+            padding: "8px 10px",
+            fontSize: "11px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "3px",
+          }}
+        >
+          <strong style={{ color: "var(--sk-ink)", fontSize: "11.5px" }}>Slide 02: Token Pairing</strong>
+          <span style={{ color: "var(--mute)" }}>5,000+ vector assets</span>
+        </div>
       </div>
     </div>
   );

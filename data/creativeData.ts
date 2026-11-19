@@ -32,5 +32,13 @@ export const CREATIVE_PROJECTS: CreativeProject[] = [
     description: "Exploring the boundary between high-precision UI engineering, spring physics, and drawn manga sound effects.",
     tags: ["Canvas API", "Springs", "Sakuga VFX"],
   },
+  {
+    id: "manga-sfx-engine",
+    title: "Manga Onomatopoeia Sound FX Engine",
+    subtitle: "Interactive Physics & Lettering",
+    category: "Manga Physics",
+    description: "An interactive manga physics laboratory that generates hand-drawn Japanese sound effect lettering (ドン, シュッ, ゴゴゴ, カチッ) with tactile spring shockwaves and particle bursts.",
+    tags: ["Onomatopoeia", "Spring Physics", "Drawn SFX", "Interactive Canvas"],
+  },
 ];
 

@@ -10,7 +10,7 @@ export interface Project {
   metrics?: { label: string; value: string }[];
   tags: string[];
   linkText?: string;
-  interactiveType: "button" | "slider" | "checkbox" | "progress";
+  interactiveType: "button" | "slider" | "checkbox" | "progress" | "tabs";
 }
 
 export interface Metric {
@@ -93,6 +93,18 @@ export const PROJECTS_DATA: Project[] = [
       "Turning chaotic bug bashes into structured, triage-ready bugs using AI, without breaking the testing flow. Captures context, formats repro steps, and routes issues automatically.",
     tags: ["Developer UX", "Automated Triage", "AI Workflows"],
     interactiveType: "progress",
+  },
+  {
+    id: "copilot-orchestrator",
+    number: "05",
+    badge: "AI Systems",
+    title: "Copilot Presentation Orchestrator",
+    category: "AI Tooling",
+    disciplines: "AI Workflows · Spatial Grids · Generative Layout",
+    description:
+      "Generative layout synthesis and slide orchestration engine for Microsoft 365 presentations. Translates complex enterprise briefs into balanced, brand-aligned slide decks with real-time typography pairing and adaptive spatial grids.",
+    tags: ["Generative Layout", "Spatial Grids", "Multi-modal AI", "Design Systems"],
+    interactiveType: "tabs",
   },
 ];
 
