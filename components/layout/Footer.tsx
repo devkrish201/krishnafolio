@@ -31,9 +31,35 @@ export function Footer({ onToast }: FooterProps) {
               Have an ambitious product, design system, or kinetic AI interface in mind? Whether you want to collaborate on a new project or explore an engineering role, let&apos;s build something remarkable.
             </p>
             <div className="contact-social-row">
-              <a className="pill" href={`mailto:${PROFILE_DATA.socials.email}`}>Email ↗</a>
-              <a className="pill" href={PROFILE_DATA.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-              <a className="pill" href={PROFILE_DATA.socials.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              <sakuga-button
+                variant="secondary"
+                href={`mailto:${PROFILE_DATA.socials.email}`}
+                onClick={() => onToast("Opening email composer...")}
+              >
+                Email ↗
+              </sakuga-button>
+              <sakuga-button
+                variant="secondary"
+                href={PROFILE_DATA.socials.linkedin}
+                target="_blank"
+                onClick={() => {
+                  window.open(PROFILE_DATA.socials.linkedin, "_blank", "noopener,noreferrer");
+                  onToast("Opening LinkedIn profile...");
+                }}
+              >
+                LinkedIn ↗
+              </sakuga-button>
+              <sakuga-button
+                variant="secondary"
+                href={PROFILE_DATA.socials.github}
+                target="_blank"
+                onClick={() => {
+                  window.open(PROFILE_DATA.socials.github, "_blank", "noopener,noreferrer");
+                  onToast("Opening GitHub profile...");
+                }}
+              >
+                GitHub ↗
+              </sakuga-button>
             </div>
           </div>
 
@@ -125,22 +151,13 @@ export function Footer({ onToast }: FooterProps) {
                     </div>
                   </div>
 
-                  <a
+                  <sakuga-button
+                    variant="secondary"
                     href={`tel:${PROFILE_DATA.socials.phone.replace(/\s+/g, "")}`}
-                    className="pill"
-                    style={{
-                      background: "var(--sk-card)",
-                      border: "2px solid var(--sk-ink)",
-                      boxShadow: "2px 2px 0 var(--sk-soft)",
-                      fontSize: "12px",
-                      fontWeight: 800,
-                      padding: "0 14px",
-                      minHeight: "34px",
-                    }}
                     onClick={() => onToast("Dialing Krishna's direct line...")}
                   >
                     Call Now ↗
-                  </a>
+                  </sakuga-button>
                 </div>
               </div>
             </form>

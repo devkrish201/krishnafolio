@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { PROFILE_DATA } from "@/data/portfolioData";
 import { useSakugaTheme } from "@/components/ui/SakugaThemeContext";
 
@@ -13,15 +13,41 @@ interface HeaderProps {
 }
 
 export function Header({ onToast, activePath }: HeaderProps) {
+  const router = useRouter();
   const pathname = usePathname();
   const currentPath = activePath || pathname || "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { isDark, toggleDark, currentMeta } = useSakugaTheme();
+  const navTabsRef = useRef<HTMLElement | null>(null);
+
+  const getActiveNavIndex = () => {
+    if (currentPath === "/beyond-product") return 1;
+    if (currentPath === "/life-and-all") return 2;
+    if (currentPath === "/about") return 3;
+    return 0; // "/"
+  };
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    const el = navTabsRef.current;
+    if (!el) return;
+    const handleChange = (e: any) => {
+      const val = e.detail?.value || (el as any).value;
+      if (val) {
+        if (val === "/" && currentPath === "/") {
+          document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
+        } else if (val !== currentPath) {
+          router.push(val);
+        }
+      }
+    };
+    el.addEventListener("change", handleChange);
+    return () => el.removeEventListener("change", handleChange);
+  }, [currentPath, router]);
 
   // Handle ESC key and lock body scroll while drawer is open
   useEffect(() => {
@@ -110,29 +136,18 @@ export function Header({ onToast, activePath }: HeaderProps) {
           </div>
         </Link>
 
-        {/* Desktop & Tablet Navigation Bar (Hidden on Mobile) */}
+        {/* Desktop & Tablet Navigation Bar using Sakuga Tabs */}
         <nav aria-label="Main Navigation" className="desktop-nav">
-          <Link href="/#work" className={currentPath === "/" ? "active" : ""}>
-            Work
-          </Link>
-          <Link
-            href="/beyond-product"
-            className={currentPath === "/beyond-product" ? "active" : ""}
+          <sakuga-tabs
+            ref={navTabsRef}
+            label="Main Navigation"
+            selected={getActiveNavIndex()}
           >
-            Beyond Product
-          </Link>
-          <Link
-            href="/life-and-all"
-            className={currentPath === "/life-and-all" ? "active" : ""}
-          >
-            Life &amp; Play
-          </Link>
-          <Link
-            href="/about"
-            className={currentPath === "/about" ? "active" : ""}
-          >
-            About
-          </Link>
+            <option value="/">Work</option>
+            <option value="/beyond-product">Beyond Product</option>
+            <option value="/life-and-all">Life &amp; Play</option>
+            <option value="/about">About</option>
+          </sakuga-tabs>
         </nav>
 
         {/* Header Actions */}
@@ -172,13 +187,18 @@ export function Header({ onToast, activePath }: HeaderProps) {
             )}
           </button>
 
-          <a
-            className="contact-nav-btn desktop-only-btn"
-            href="#contact"
-            onClick={() => onToast("Let's talk!")}
-          >
-            Let&apos;s talk <span aria-hidden="true">↗</span>
-          </a>
+          <div className="desktop-only-btn">
+            <sakuga-button
+              variant="secondary"
+              href="#contact"
+              onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                onToast("Let's talk!");
+              }}
+            >
+              Let&apos;s talk ↗
+            </sakuga-button>
+          </div>
 
           {/* Sakuga 3-Bar Hamburger Trigger Button */}
           <button

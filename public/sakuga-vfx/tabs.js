@@ -12,12 +12,12 @@ class SakugaTabs extends fx.Base {
   static fromChildren = true;
   static observedAttributes = ['selected'];
   static css = `
-    :host { margin-top: 10px; }
-    .tabs { position: relative; display: flex; border: var(--sk-bw) solid var(--sk-ink); border-radius: 12px; background: var(--sk-card); box-shadow: var(--sk-sh); }
+    :host { display: inline-block; vertical-align: middle; margin: var(--sk-tabs-m, 0); }
+    .tabs { position: relative; display: flex; border: var(--sk-bw) solid var(--sk-ink); border-radius: var(--sk-tabs-r, 14px); background: var(--sk-card); box-shadow: var(--sk-sh); align-items: stretch; }
     .ind { position: absolute; top: -11px; bottom: -1px; left: 0; width: 10px; border: var(--sk-bw) solid var(--sk-ink); border-bottom: 0; border-radius: 13px 13px 0 0; background: var(--sk-card); margin: 0 0 0 calc(var(--sk-bw) * -1); will-change: transform, width; }
-    button { position: relative; padding: 10px 15px; border: 0; border-left: 2.4px solid var(--sk-ink); background: none; font: 600 15px/1.2 -apple-system, "Segoe UI", system-ui, sans-serif; white-space: nowrap; cursor: pointer; transition: translate .18s cubic-bezier(.3, 1.6, .5, 1); }
+    button { position: relative; padding: var(--sk-tab-p, 8px 16px); border: 0; border-left: 2px solid var(--sk-ink); background: none; color: var(--sk-ink); font: 700 var(--sk-tab-fs, 14px)/1.2 "Avenir Next", "Nunito", -apple-system, sans-serif; white-space: nowrap; cursor: pointer; transition: translate .18s cubic-bezier(.3, 1.6, .5, 1), color .15s ease; }
     button:first-of-type { border-left-color: transparent; }
-    button[aria-selected=true] { font-weight: 800; translate: 0 -5px; border-left-color: transparent; } button[aria-selected=true] + button { border-left-color: transparent; }`;
+    button[aria-selected=true] { font-weight: 800; color: var(--sk-ink); translate: 0 -5px; border-left-color: transparent; } button[aria-selected=true] + button { border-left-color: transparent; }`;
   get selected() { return this.tabs ? this.tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true') : +(this.getAttribute('selected') || 0); }
   set selected(i) { if (this.tabs) this.go(+i, true); else this.setAttribute('selected', i); }
   get value() { const t = this.tabs?.[this.selected]; return t ? t.dataset.value : ''; }
@@ -28,7 +28,7 @@ class SakugaTabs extends fx.Base {
     return `<div class="tabs" role="tablist" part="tabs" aria-label="${esc(this.getAttribute('label') || 'Tabs')}"><span class="ind" part="indicator"></span>${opts.map((o) => `<button type="button" role="tab" part="tab" aria-selected="false" tabindex="-1" data-value="${esc(o.v)}">${esc(o.t)}</button>`).join('')}</div>`;
   }
   go(i, quiet) {
-    const tabs = this.tabs; i = Math.max(0, Math.min(tabs.length - 1, i)); if (i === this.selected && !quiet) return;
+    const tabs = this.tabs; if (!tabs || !tabs.length) return; i = Math.max(0, Math.min(tabs.length - 1, i)); if (i === this.selected && !quiet) return;
     tabs.forEach((t, n) => { t.setAttribute('aria-selected', String(n === i)); t.tabIndex = n === i ? 0 : -1; });
     const t = tabs[i]; this.dir = Math.sign(t.offsetLeft - this.sx.to) || 1; this.sx.to = t.offsetLeft; this.sw.to = t.offsetWidth;
     if (quiet) { this.sx.x = this.sx.to; this.sw.x = this.sw.to; this.sx.v = 0; } else { this.pending = true; this.up.x = -5; this.dispatchEvent(new CustomEvent('change', { bubbles: true, detail: { index: i, value: t.dataset.value, label: t.textContent } })); }

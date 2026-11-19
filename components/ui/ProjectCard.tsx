@@ -96,17 +96,12 @@ export function ProjectCard({ project, onToast, index = 0 }: ProjectCardProps) {
             <span style={{ fontSize: "12px", color: "var(--mute)" }}>
               {project.tags[0]}
             </span>
-            <button
-              className="pill"
-              type="button"
-              style={{
-                borderColor: "var(--sk-ink)",
-                boxShadow: `2px 2px 0 ${palette.shadow}`,
-              }}
+            <sakuga-button
+              variant="secondary"
               onClick={() => onToast(`Exploring ${project.title}...`)}
             >
               Explore Project ↗
-            </button>
+            </sakuga-button>
           </>
         )}
       </div>

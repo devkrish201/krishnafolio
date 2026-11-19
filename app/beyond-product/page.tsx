@@ -28,17 +28,23 @@ export default function BeyondProductPage() {
               I&apos;ve also spent years helping startups and ventures bring their vision to life through brand strategy, kinetic design systems, packaging, and creative coding.
             </p>
             <div className="studio-hero-links">
-              <a
-                className="pill"
+              <sakuga-button
                 href="https://behance.net"
                 target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => {
+                  window.open("https://behance.net", "_blank", "noopener,noreferrer");
+                  showToast("Opening Creative Practice...");
+                }}
               >
                 Explore Creative Practice ↗
-              </a>
-              <a className="pill" href="/">
+              </sakuga-button>
+              <sakuga-button
+                variant="secondary"
+                href="/"
+                onClick={() => showToast("Navigating back to work...")}
+              >
                 Back to Work ↑
-              </a>
+              </sakuga-button>
             </div>
           </div>
         </section>
@@ -119,17 +125,12 @@ export default function BeyondProductPage() {
 
                   <div className="project-acts">
                     <span style={{ fontSize: "12px", color: "var(--mute)" }}>Crafted with Sakuga care</span>
-                    <button
-                      className="pill"
-                      type="button"
-                      style={{
-                        borderColor: "var(--sk-ink)",
-                        boxShadow: `2px 2px 0 ${currentAccent}`,
-                      }}
+                    <sakuga-button
+                      variant="secondary"
                       onClick={() => showToast(`Viewing ${item.title}...`)}
                     >
                       View Project ↗
-                    </button>
+                    </sakuga-button>
                   </div>
                 </article>
               );
