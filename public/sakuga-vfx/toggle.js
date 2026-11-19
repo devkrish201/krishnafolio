@@ -17,10 +17,10 @@ class SakugaToggle extends fx.Base {
   static formAssociated = true;
   static observedAttributes = ['checked', 'disabled', 'label'];
   static css = `
-    :host { width: 108px; height: 54px; margin: 89px 21px 20px; }   /* the drawing is bigger than the button: this keeps room for all of it */
+    :host { display: inline-block; vertical-align: middle; width: 108px; height: 54px; margin: var(--sk-toggle-m, 0px); }
     .tog { position: relative; display: block; width: 108px; height: 54px; padding: 0; border: 0; border-radius: 27px; background: none; cursor: pointer; }
     .tog:disabled { cursor: not-allowed; opacity: .5; }
-    canvas { position: absolute; left: 50%; top: 50%; width: 150px; height: 162.5px; margin: -115.6px 0 0 -75px; pointer-events: none; }`;
+    canvas { position: absolute; left: 50%; top: 50%; width: 150px; height: 162.5px; margin: -115.6px 0 0 -75px; pointer-events: none; filter: var(--sk-toggle-filter, none); transition: filter 0.28s ease; }`;
   get checked() { return this.hasAttribute('checked'); }
   set checked(v) { this.toggleAttribute('checked', !!v); }
   get disabled() { return this.hasAttribute('disabled'); }

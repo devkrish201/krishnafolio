@@ -241,7 +241,15 @@ export function SakugaBurstAvatar({
           }}
           onClick={toggleAvatarMode}
         >
-          <span style={{ fontSize: "11px" }}>{useGojo ? "⚡" : "✨"}</span>
+          {useGojo ? (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          ) : (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z" />
+            </svg>
+          )}
           <span>{useGojo ? "Gojo Anime Mode" : "Natural Cutout"}</span>
           <span style={{ opacity: 0.7, fontSize: "10px", marginLeft: "4px" }}>[Click to swap]</span>
         </div>

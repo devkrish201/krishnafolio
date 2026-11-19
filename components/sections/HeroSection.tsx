@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { PROFILE_DATA } from "@/data/portfolioData";
 import { SakugaMascot } from "@/components/ui/SakugaMascot";
 
@@ -8,23 +8,37 @@ interface HeroSectionProps {
 
 export function HeroSection({ onToast }: HeroSectionProps) {
   const [available, setAvailable] = useState(PROFILE_DATA.isAvailable);
+  const toggleRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = toggleRef.current;
+    if (!el) return;
+    const handleChange = () => {
+      const state = (el as any).checked;
+      setAvailable(state);
+      onToast(state ? "Status: Available for projects" : "Status: Busy shipping products");
+    };
+    el.addEventListener("change", handleChange);
+    return () => el.removeEventListener("change", handleChange);
+  }, [onToast]);
 
   return (
     <section className="studio-hero">
       <div className="studio-intro-copy">
         {/* Availability Switch */}
         <div className="hero-status-row">
-          <span className="status-dot"></span>
+          <span className={`status-dot ${available ? "is-available" : "is-busy"}`}></span>
           <span className="eyebrow">
             {available ? "Available for projects" : "Busy shipping products"}
           </span>
           <sakuga-toggle
+            ref={toggleRef}
             label="Availability toggle"
             checked={available}
             onChange={(e: any) => {
               const state = e.target.checked;
               setAvailable(state);
-              onToast(state ? "Status: Open to work" : "Status: Busy shipping");
+              onToast(state ? "Status: Available for projects" : "Status: Busy shipping products");
             }}
           ></sakuga-toggle>
         </div>

@@ -151,21 +151,8 @@ export function Header({ onToast, activePath }: HeaderProps) {
             }}
             title={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
             aria-label={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
-            style={{
-              width: "40px",
-              height: "40px",
-              borderRadius: "12px",
-              border: "2px solid var(--sk-ink)",
-              background: "var(--chip)",
-              boxShadow: "2px 2.5px 0 var(--sk-soft)",
-              display: "grid",
-              placeItems: "center",
-              cursor: "pointer",
-              color: "var(--sk-ink)",
-              transition: "transform 0.15s ease, box-shadow 0.15s ease",
-              flexShrink: 0,
-            }}
           >
+            <span className="theme-toggle-dot" />
             {isDark ? (
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="5"></circle>
