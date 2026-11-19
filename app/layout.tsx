@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head suppressHydrationWarning>
         {/* Instant SSR Theme Initialization to prevent Flash of Unstyled Theme */}
         <script
