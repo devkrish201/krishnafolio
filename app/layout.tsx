@@ -4,6 +4,7 @@ import { SakugaCursor } from "@/components/ui/SakugaCursor";
 import { SakugaScrollProgress } from "@/components/ui/SakugaScrollProgress";
 import { SakugaThemeProvider } from "@/components/ui/SakugaThemeContext";
 import { SakugaFloatingControls } from "@/components/ui/SakugaFloatingControls";
+import { SakugaPreloader } from "@/components/ui/SakugaPreloader";
 
 export const metadata: Metadata = {
   title: "Krishna Sahoo — Product & Systems Designer",
@@ -43,6 +44,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <SakugaThemeProvider>
+          {/* Kinetic Sakuga Anime Preloader with Hero Mascot Character */}
+          <SakugaPreloader />
+
           {/* Real-time Top Scroll Progress Indicator */}
           <SakugaScrollProgress />
 
