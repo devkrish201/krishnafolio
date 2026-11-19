@@ -10,6 +10,15 @@ import { SakugaPreloader } from "@/components/ui/SakugaPreloader";
 export const metadata: Metadata = {
   title: "Krishna Sahoo — Product & Systems Designer",
   description: "Portfolio of Krishna Sahoo built with the Sakuga VFX anime-kinetic design system.",
+  icons: {
+    icon: [
+      { url: "/gojo-logo.png", type: "image/png" },
+      { url: "/gojo-logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/gojo-logo.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/gojo-logo.png",
+    apple: "/gojo-logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -20,6 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head suppressHydrationWarning>
+        <link rel="icon" href="/gojo-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/gojo-logo.png" />
         {/* Instant SSR Theme Initialization to prevent Flash of Unstyled Theme */}
         <script
           suppressHydrationWarning
