@@ -24,25 +24,13 @@ export default function AboutPage() {
           className="studio-about"
           style={{
             borderTop: "none",
-            paddingTop: "48px",
-            paddingBottom: "80px",
             alignItems: "center",
           }}
         >
           {/* Left: Sunflower Blossom Cutout or JJK Gojo Manga Poster */}
           <div className="studio-about-profile">
             {/* Visual Switcher Pills */}
-            <div
-              style={{
-                display: "inline-flex",
-                gap: "6px",
-                background: "var(--chip)",
-                padding: "4px 6px",
-                borderRadius: "999px",
-                border: "1.5px solid var(--line)",
-                marginBottom: "24px",
-              }}
-            >
+            <div className="about-visual-switcher">
               <button
                 type="button"
                 className="pill"
@@ -140,16 +128,7 @@ export default function AboutPage() {
             </p>
 
             {/* Satoru Gojo Design Philosophy Card */}
-            <div
-              style={{
-                margin: "24px 0",
-                padding: "16px 20px",
-                background: "rgba(0, 229, 255, 0.06)",
-                borderRadius: "var(--sk-r)",
-                border: "2px solid #00e5ff",
-                boxShadow: "4px 4px 0 var(--sk-soft)",
-              }}
-            >
+            <div className="about-philosophy-card">
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <span className="project-badge" style={{ background: "#0c0a24", color: "#00e5ff", borderColor: "#00e5ff" }}>
                   The Infinity Principle · 無量空処

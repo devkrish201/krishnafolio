@@ -1105,6 +1105,7 @@ nav a:hover, nav a.active {
   align-items: center;
   padding: clamp(64px, 8vw, 108px) 0;
   border-top: 1.5px solid var(--line);
+  overflow-x: clip;
 }
 
 .studio-about-profile {
@@ -1115,8 +1116,29 @@ nav a:hover, nav a.active {
   width: 100%;
 }
 
+.about-visual-switcher {
+  display: inline-flex;
+  gap: 6px;
+  background: var(--chip);
+  padding: 4px 6px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+
 .studio-about-copy {
   max-width: 620px;
+  text-align: left;
+}
+
+.about-philosophy-card {
+  margin: 22px 0;
+  padding: 16px 20px;
+  background: rgba(0, 229, 255, 0.06);
+  border-radius: var(--sk-r);
+  border: 2px solid #00e5ff;
+  box-shadow: 4px 4px 0 var(--sk-soft);
 }
 
 .about-lead {
@@ -1330,15 +1352,32 @@ nav a:hover, nav a.active {
   }
   .studio-about {
     grid-template-columns: 1fr;
-    gap: 48px;
-    text-align: center;
+    gap: 44px;
+    padding: 56px 0;
+    text-align: left;
+  }
+  .studio-about-profile {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
   }
   .studio-about-copy {
+    max-width: 680px;
     margin: 0 auto;
+    width: 100%;
+    text-align: left;
   }
-  .about-pills-row,
+  .about-pills-row {
+    justify-content: flex-start;
+  }
   .studio-about-links {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+  .manga-splash-stage {
+    max-width: 420px;
+  }
+  .sakuga-burst-container {
+    max-width: 440px !important;
   }
   .contact-section {
     flex-direction: column;
@@ -1428,6 +1467,97 @@ nav a:hover, nav a.active {
   .storyboard-canvas {
     padding: 24px 16px;
   }
+
+  /* Studio About Mobile Overrides */
+  .studio-about {
+    padding: 36px 0;
+    gap: 32px;
+    text-align: left;
+  }
+  .studio-about-profile {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .studio-about-copy {
+    text-align: left;
+    max-width: 100%;
+    width: 100%;
+  }
+  .about-lead {
+    font-size: 17px;
+    margin: 12px 0 14px;
+  }
+  .studio-about-copy p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+  .about-visual-switcher {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .about-pills-row {
+    margin-top: 18px;
+    gap: 6px;
+    justify-content: flex-start;
+  }
+  .about-cadence-card {
+    margin: 20px 0;
+    padding: 14px 16px;
+  }
+  .studio-about-links {
+    gap: 10px;
+    margin-top: 22px;
+    justify-content: flex-start;
+  }
+  .manga-splash-stage {
+    max-width: 360px;
+    width: 100%;
+  }
+  .manga-speedline-backdrop {
+    inset: -6px -8px;
+    border-radius: 24px;
+  }
+  .floating-manga-kanji-left {
+    left: 8px;
+    top: 12px;
+    font-size: 20px;
+    letter-spacing: 0.16em;
+  }
+  .floating-manga-kanji-right {
+    right: 8px;
+    bottom: 24px;
+    font-size: 18px;
+    letter-spacing: 0.16em;
+  }
+  .manga-sfx-stamp-top {
+    top: -10px;
+    right: 12px;
+    font-size: 22px;
+  }
+  .manga-sfx-stamp-bottom {
+    bottom: 12px;
+    left: 10px;
+    font-size: 20px;
+  }
+  .domain-seal-pill {
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 5px 12px;
+    gap: 6px;
+  }
+  .domain-seal-pill span {
+    font-size: 11px !important;
+  }
+  .sakuga-burst-container {
+    max-width: 360px !important;
+  }
+  .sakuga-halftone-grid {
+    inset: -6px !important;
+    border-radius: 20px !important;
+  }
 }
 
 /* Small Phone Screens (<480px) */
@@ -1450,6 +1580,83 @@ nav a:hover, nav a.active {
   }
   .contact-btn-row sakuga-button {
     width: 100%;
+  }
+
+  /* Studio About Small Mobile (<480px) */
+  .studio-about {
+    padding: 24px 0;
+    gap: 24px;
+  }
+  .studio-about-profile {
+    max-width: 100%;
+  }
+  .about-visual-switcher {
+    border-radius: 16px;
+    padding: 5px;
+    gap: 4px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .about-visual-switcher .pill {
+    flex: 1 1 125px;
+    justify-content: center;
+    font-size: 11px !important;
+    padding: 0 8px !important;
+    min-height: 36px !important;
+  }
+  .about-philosophy-card {
+    padding: 12px 14px !important;
+    margin: 16px 0 !important;
+  }
+  .about-cadence-card {
+    padding: 12px 14px;
+    margin: 16px 0;
+  }
+  .cadence-text {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+  .studio-about-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+  .studio-about-links sakuga-button,
+  .studio-about-links .pill {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .sakuga-burst-container {
+    max-width: 320px !important;
+  }
+}
+
+/* Extra Small Screens (<=380px) */
+@media (max-width: 380px) {
+  .manga-splash-stage {
+    max-width: 280px;
+  }
+  .sakuga-burst-container {
+    max-width: 275px !important;
+  }
+  .floating-manga-kanji-left {
+    left: 6px;
+    top: 10px;
+    font-size: 17px;
+  }
+  .floating-manga-kanji-right {
+    right: 6px;
+    bottom: 20px;
+    font-size: 16px;
+  }
+  .domain-seal-pill {
+    padding: 4px 10px;
+    font-size: 10px;
   }
 }
 
@@ -1599,6 +1806,131 @@ body.has-dandadan-cursor sakuga-radio {
 /* ========================================================
    UNBOXED MANGA ACTION SPLASH STAGE (NO BASIC CARD / BOX)
    ======================================================== */
+.manga-splash-stage {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.manga-speedline-backdrop {
+  position: absolute;
+  inset: -20px -28px;
+  background-image:
+    radial-gradient(circle, var(--line) 2px, transparent 2px),
+    linear-gradient(135deg, rgba(184, 179, 255, 0.12) 0%, transparent 70%);
+  background-size: 22px 22px, 100% 100%;
+  z-index: 0;
+  border-radius: 36px;
+  pointer-events: none;
+}
+
+.floating-manga-kanji-left {
+  position: absolute;
+  left: -26px;
+  top: 16px;
+  z-index: 4;
+  writing-mode: vertical-rl;
+  font-family: 'Avenir Next', 'Noto Serif JP', serif;
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow:
+    2px 2px 0 var(--sk-ink),
+    -2px -2px 0 var(--sk-ink),
+    2px -2px 0 var(--sk-ink),
+    -2px 2px 0 var(--sk-ink),
+    0 0 16px rgba(0, 229, 255, 0.65);
+  letter-spacing: 0.22em;
+  pointer-events: none;
+  transform: rotate(-3deg);
+  animation: float-kanji 5s ease-in-out infinite;
+}
+
+.floating-manga-kanji-right {
+  position: absolute;
+  right: -26px;
+  bottom: 40px;
+  z-index: 4;
+  writing-mode: vertical-rl;
+  font-family: 'Avenir Next', 'Noto Serif JP', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 900;
+  color: var(--sk-acc);
+  text-shadow:
+    2px 2px 0 var(--sk-ink),
+    -2px -2px 0 var(--sk-ink),
+    0 0 16px rgba(255, 95, 168, 0.7);
+  letter-spacing: 0.2em;
+  pointer-events: none;
+  transform: rotate(2deg);
+  animation: float-kanji-right 5.5s ease-in-out infinite;
+}
+
+.manga-sfx-stamp-top {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  z-index: 4;
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 900;
+  font-style: italic;
+  color: #ffffff;
+  text-shadow:
+    3px 3px 0 var(--sk-ink),
+    -2px -2px 0 var(--sk-ink),
+    0 0 18px #00e5ff;
+  pointer-events: none;
+  transform: rotate(12deg);
+}
+
+.manga-sfx-stamp-bottom {
+  position: absolute;
+  bottom: 16px;
+  left: 14px;
+  z-index: 4;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--sk-acc);
+  text-shadow:
+    3px 3px 0 var(--sk-ink),
+    -2px -2px 0 var(--sk-ink),
+    0 0 16px #ff5fa8;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+.domain-seal-pill {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(29, 26, 74, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid #00e5ff;
+  border-radius: 999px;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.45), 3px 3px 0 var(--sk-ink);
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.sakuga-burst-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.14;
+  margin: 0 auto;
+  user-select: none;
+  display: grid;
+  place-items: center;
+}
 @keyframes cursed-aura-pulse {
   0%, 100% {
     box-shadow: 0 0 32px rgba(0, 229, 255, 0.45), 8px 9px 0 var(--sk-soft);
