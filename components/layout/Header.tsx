@@ -297,7 +297,7 @@ export function Header({ onToast, activePath }: HeaderProps) {
               </div>
 
               {/* Contact Button Only (Clean Minimalist Sidebar) */}
-              <div className="drawer-footer-cta" style={{ marginTop: "auto", paddingTop: "24px" }}>
+              <div className="drawer-footer-cta">
                 <a
                   className="contact-nav-btn"
                   href="#contact"
