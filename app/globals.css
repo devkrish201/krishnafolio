@@ -312,14 +312,18 @@
   --sk-toggle-filter: hue-rotate(117deg) saturate(1.6) contrast(1.25) brightness(0.95);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
   background: var(--page);
   overflow-x: clip;
@@ -331,9 +335,22 @@ body {
   background: var(--page);
   font: 500 15px/1.55 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: clip;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+}
+
+a,
+button,
+input,
+textarea,
+select,
+summary,
+[role="button"],
+[tabindex] {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 a {
@@ -341,9 +358,19 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+[role="button"] {
   font: inherit;
   color: inherit;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* ========================================================
